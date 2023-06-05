@@ -27,7 +27,7 @@ class Referral(models.Model):
     expired_at = models.DateTimeField(null=True, blank=True)
     redirect_to = models.CharField(max_length=512)
     target_content_type = models.ForeignKey(ContentType, null=True, blank=True, on_delete=models.SET_NULL)
-    target_object_id = models.PositiveIntegerField(null=True, blank=True)
+    target_object_id = models.UUIDField(null=True, blank=True)
     target = GenericForeignKey(
         ct_field="target_content_type",
         fk_field="target_object_id"
